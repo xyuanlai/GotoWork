@@ -26,6 +26,16 @@
   <div id="map"></div>
 
   <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker Registered. Scope is: ' + registration.scope);
+      })
+      .catch(function(err) {
+        console.log('Service Worker registration failed: ', err);
+      });
+    }
+
     function initMap() {
       var pointNuvoton = new google.maps.LatLng(24.779761, 120.990433);
       var myOptions = {
@@ -43,7 +53,6 @@
       } else {
         console.log('geolocation not support');
       }
-
     }
 
     function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
