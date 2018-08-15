@@ -27,7 +27,7 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js', { scope: '/' })
+      navigator.serviceWorker.register('./service-worker.js', { scope: '/GotoWork/' })
       .then(function(registration) {
         console.log('Service Worker Registered. Scope is: ' + registration.scope);
       })
